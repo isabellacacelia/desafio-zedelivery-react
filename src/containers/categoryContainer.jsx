@@ -1,15 +1,12 @@
 import React from "react";
 import CategoryFilter from "../components/categoryFilter";
 
-const categoryContainer = (props) => {
+const categoryContainer = ({ categories = [] }) => {
   return (
     <div>
-      <CategoryFilter title="Cervejas"></CategoryFilter>
-      <CategoryFilter title="Cervejas"></CategoryFilter>
-      <CategoryFilter title="Cervejas"></CategoryFilter>
-      <CategoryFilter title="Cervejas"></CategoryFilter>
-      <CategoryFilter title="Cervejas"></CategoryFilter>
-      <CategoryFilter title="Cervejas"></CategoryFilter>
+      {categories.map(({ id, title }) => {
+        return <CategoryFilter id={id} title={title} />;
+      })}
     </div>
   );
 };

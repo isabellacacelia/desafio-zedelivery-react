@@ -27,11 +27,11 @@ const StyleCardProductImage = Styled.img`
     margin: auto
 `;
 
-const CardProduct = ({ title = "", price = "", imgProduct = "" }) => {
+const CardProduct = ({ id = "", title = "", price = 0, imgProduct = "" }) => {
   return (
     <StyleCardProduct>
       <StyleCardProductImage src={imgProduct} alt={title} />
-      <StyleCardProductParagraph>{title}</StyleCardProductParagraph>
+      <StyleCardProductParagraph value={id}>{title}</StyleCardProductParagraph>
       <StyleCardProductPrice>R$ {price}</StyleCardProductPrice>
     </StyleCardProduct>
   );

@@ -1,37 +1,21 @@
 import React from "react";
 import CardProduct from "../components/cardProduct";
 
-const productsContainer = (props) => {
+const ProductsContainer = ({ products }) => {
   return (
     <div>
-      <h2>Petiscos</h2>
-      <CardProduct
-        imgProduct="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/00009414_91d2e756-8b3b-4363-ba91-2c8c8b82eeef.jpg"
-        title="Sukita 350ml"
-        price={1.99}
-      ></CardProduct>
-      <CardProduct
-        imgProduct="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/00009414_91d2e756-8b3b-4363-ba91-2c8c8b82eeef.jpg"
-        title="Sukita 350ml"
-        price={1.99}
-      ></CardProduct>
-      <CardProduct
-        imgProduct="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/00009414_91d2e756-8b3b-4363-ba91-2c8c8b82eeef.jpg"
-        title="Sukita 350ml"
-        price={1.99}
-      ></CardProduct>
-      <CardProduct
-        imgProduct="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/00009414_91d2e756-8b3b-4363-ba91-2c8c8b82eeef.jpg"
-        title="Sukita 350ml"
-        price={1.99}
-      ></CardProduct>
-      <CardProduct
-        imgProduct="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/00009414_91d2e756-8b3b-4363-ba91-2c8c8b82eeef.jpg"
-        title="Sukita 350ml"
-        price={1.99}
-      ></CardProduct>
+      {products.map(({ id, title, imgProduct, price }) => {
+        return (
+          <CardProduct
+            id={id}
+            title={title}
+            imgProduct={imgProduct}
+            price={price}
+          />
+        );
+      })}
     </div>
   );
 };
 
-export default productsContainer;
+export default ProductsContainer;
