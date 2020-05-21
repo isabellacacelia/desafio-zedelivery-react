@@ -27,12 +27,20 @@ const StyleCardProductImage = Styled.img`
     margin: auto
 `;
 
+const getPriceTextValue = (price) => {
+  if (price) {
+    return `R$ ${price}`;
+  }
+
+  return `Produto Indisponível`;
+}
+
 const CardProduct = ({ id = "", title = "", price = 0, imgProduct = "" }) => {
   return (
     <StyleCardProduct>
       <StyleCardProductImage src={imgProduct} alt={title} />
       <StyleCardProductParagraph value={id}>{title}</StyleCardProductParagraph>
-      <StyleCardProductPrice>R$ {price}</StyleCardProductPrice>
+      <StyleCardProductPrice>{getPriceTextValue(price)}</StyleCardProductPrice>
     </StyleCardProduct>
   );
 };

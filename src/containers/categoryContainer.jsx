@@ -5,7 +5,7 @@ const categoryContainer = ({ categories = [] }) => {
   return (
     <div>
       {categories.map(({ id, title }) => {
-        return <CategoryFilter id={id} title={title} />;
+        return <CategoryFilter key={id} id={id} title={title} />;
       })}
     </div>
   );

@@ -18,20 +18,20 @@ const StyleCardContainer = Styled.div`
 `;
 
 const Products = (props) => {
-  const idProduct = "532",
+  const productId = "532",
     categoryId = null,
     search = "";
 
-  const { data: categories, loading, error } = useQuery(allCategory);
+  const { data: categoriesData, loading: loadingCategories, error: errorCategories } = useQuery(allCategory);
   const {
     loading: loadingProducts,
     error: errorProducts,
-    data: products,
+    data: productsData,
   } = useQuery(allProducts, {
     variables: {
-      id: { idProduct },
-      categoryId: { categoryId },
-      search: { search },
+      id: productId,
+      categoryId,
+      search,
     },
   });
 
@@ -46,12 +46,15 @@ const Products = (props) => {
     );
   }
 
+  const categories = categoriesData?.allCategory;
+  const products = productsData?.poc?.products;
+
   return (
     <div>
       <Header />
       <StyleCardContainer>
-        <CategoryContainer categories={categories?.allCategory} />
-        <ProductsContainer products={products?.allProducts} />
+        <CategoryContainer categories={categories} />
+        <ProductsContainer products={products} />
       </StyleCardContainer>
       <Footer />
     </div>
