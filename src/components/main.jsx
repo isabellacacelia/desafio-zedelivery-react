@@ -33,7 +33,7 @@ const StyleMain = Styled.main`
         padding: 1em 0;
         }
     }
-    .inpur {
+    .inputMain {
         width: 100%;
         height: 48px;
         border-radius: 8px;
@@ -65,7 +65,7 @@ const Main = () => {
           value=""
           placeholder="Inserir endereço para ver preço"
           autocapitalize="none"
-          class="inpur"
+          class="inputMain"
         />
       </div>
     </StyleMain>

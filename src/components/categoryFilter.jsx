@@ -19,9 +19,9 @@ const StyleCategoryFilterParagraph = Styled.p`
     color: #333;
 `;
 
-const CategoryFilter = ({ title = "", id = "" }) => {
+const CategoryFilter = ({ title = "", id = "", onCategoryClick }) => {
   return (
-    <StyleCategoryFilter value={id}>
+    <StyleCategoryFilter onClick={(event) => onCategoryClick(id)} value={id}>
       <StyleCategoryFilterParagraph>{title}</StyleCategoryFilterParagraph>
     </StyleCategoryFilter>
   );
