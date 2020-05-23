@@ -32,7 +32,7 @@ const Loading = Styled.div`
 const Products = (props) => {
   const productId = "532";
   const [categoryId, setCategoryId] = useState(null);
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState(undefined);
 
   const {
     data: categoriesData,
@@ -65,7 +65,7 @@ const Products = (props) => {
     <div>
       <Header />
       <StyleCardContainer>
-        <InputSearch onSearchEnter={setSearch} />
+        <InputSearch search={search} onSearchEnter={setSearch} />
         <CategoryContainer
           categories={categories}
           onCategoryClick={setCategoryId}

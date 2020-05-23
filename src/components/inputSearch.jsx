@@ -6,7 +6,7 @@ const StyleInputSearch = Styled.input`
     height: 48px;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #ddd;
+    color: #333;
     background-color: #ffffff;
     font-size: 16px;
     border: 1px solid #ddd;
@@ -20,12 +20,18 @@ const StyleInputSearch = Styled.input`
     }
 `;
 
-const InputSearch = ({ title = "", id = "", onSearchEnter }) => {
+const InputSearch = ({
+  search = "Pesquise sua bebiba favorita",
+  onSearchEnter,
+}) => {
   return (
     <StyleInputSearch
-      placeholder="Pesquise sua bebiba favorita"
-      onKeyUp={(event) => onSearchEnter(id)}
-      value={id}
+      placeholder={search}
+      onKeyUp={(event) => {
+        if (event.keyCode === 13) {
+          onSearchEnter(event.target.value);
+        }
+      }}
     />
   );
 };

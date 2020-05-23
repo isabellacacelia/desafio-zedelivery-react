@@ -2,7 +2,7 @@ import React from "react";
 import CardProduct from "../components/cardProduct";
 import { toProductComponent } from "../helpers/data/productConverter";
 
-const ProductsContainer = ({ products = [], onSearchEnter }) => {
+const ProductsContainer = ({ products = [] }) => {
   return (
     <div>
       {products
@@ -15,7 +15,6 @@ const ProductsContainer = ({ products = [], onSearchEnter }) => {
               title={title}
               imgProduct={imgProduct}
               price={price}
-              onSearchEnter={onSearchEnter}
             />
           );
         })}
