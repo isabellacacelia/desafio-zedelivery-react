@@ -55,12 +55,18 @@ const StyleMain = Styled.main`
 `;
 
 const Main = () => {
+  const [addressQuery, setAddressQuery] = useState();
   const [addresses, setAddresses] = useState([]);
 
-  const findAddress = (address) => {
-    locationService.findByAddress(address, (result) => {
-      setAddresses(result);
-    });
+  const findAddress = (value) => {
+    if (value?.length > 3) {
+      setAddressQuery(value);
+      locationService.findByAddress(value, (result) => {
+        setAddresses(result);
+      });
+    } else {
+      setAddresses([]);
+    }
   };
 
   return (
@@ -74,9 +80,7 @@ const Main = () => {
           type="text"
           onKeyUp={(event) => {
             const { value } = event.target;
-            if (value?.length > 3) {
-              findAddress(value);
-            }
+            findAddress(value);
           }}
           placeholder="Inserir endereço para ver preço"
           className="inputMain"
