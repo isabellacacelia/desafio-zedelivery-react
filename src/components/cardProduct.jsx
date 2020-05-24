@@ -31,9 +31,8 @@ const getPriceTextValue = (price) => {
   if (price) {
     return `R$ ${price}`;
   }
-
   return `Produto Indisponível`;
-}
+};
 
 const CardProduct = ({ id = "", title = "", price = 0, imgProduct = "" }) => {
   return (

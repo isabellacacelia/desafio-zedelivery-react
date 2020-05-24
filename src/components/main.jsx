@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Styled from "styled-components";
 import { Background } from "./elements";
+import AddressContainer from "../containers/addressContainer";
+import locationService from "../services/locationService";
 
 const StyleMain = Styled.main`
     width: 100%;
@@ -53,20 +55,33 @@ const StyleMain = Styled.main`
 `;
 
 const Main = () => {
+  const [addresses, setAddresses] = useState([]);
+
+  const findAddress = (address) => {
+    locationService.findByAddress(address, (result) => {
+      setAddresses(result);
+    });
+  };
+
   return (
     <StyleMain>
-      <div class="container">
+      <div className="container">
         <h1>
           <strong>Bebidas geladas</strong> a <strong>preço</strong> de mercado
           na sua casa <strong>agora</strong>
         </h1>
         <input
           type="text"
-          value=""
+          onKeyUp={(event) => {
+            const { value } = event.target;
+            if (value?.length > 3) {
+              findAddress(value);
+            }
+          }}
           placeholder="Inserir endereço para ver preço"
-          autocapitalize="none"
-          class="inputMain"
+          className="inputMain"
         />
+        <AddressContainer address={addresses} />
       </div>
     </StyleMain>
   );

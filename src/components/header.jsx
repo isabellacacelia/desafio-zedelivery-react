@@ -10,13 +10,7 @@ const StyleHeader = Styled.header`
 const Header = () => {
   return (
     <StyleHeader>
-      <img
-        width="121px"
-        height="40px"
-        marginLeft="3em"
-        alt="Zé Delivery"
-        src={WhiteLogo}
-      />
+      <img width="121px" height="40px" alt="Zé Delivery" src={WhiteLogo} />
     </StyleHeader>
   );
 };
